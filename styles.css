@@ -300,8 +300,12 @@ a{color:inherit}
 
 /* ── Live rating ────────────────────────────────────────────────────── */
 .rating{background:rgb(var(--scrim-rgb));color:var(--on-media);overflow:hidden}
+/* The image is set inline from media.ratingBg, NOT here. This used to name a
+   file from the original Meet & Eat build that the media pipeline never
+   produces, so every generated site 404'd on it and lost this texture. */
 .rating__bg{position:absolute;inset:-15% -8%;z-index:0;pointer-events:none;
-  background:url('assets/img/wok-flame.webp') center/cover no-repeat;opacity:.16;will-change:transform}
+  background-position:center;background-size:cover;background-repeat:no-repeat;
+  opacity:.16;will-change:transform}
 .rating .wrap{position:relative;z-index:1}
 .rating__grid{display:grid;grid-template-columns:minmax(280px,.85fr) 1.15fr;gap:var(--gap);align-items:start}
 .rating__panel{border:2px solid var(--line-dark);border-radius:var(--r);padding:clamp(1.6rem,3vw,2.4rem);
