@@ -278,6 +278,11 @@ a{color:inherit}
 .dishes .p{font-family:var(--mono);font-size:.95rem;font-weight:600;
   font-variant-numeric:tabular-nums;white-space:nowrap}
 .dishes .p::before{content:'€';font-weight:400;opacity:.5;margin-right:.1em}
+/* Belt and braces on the same bug as the {{#if price}} in the template: the €
+   is a pseudo-element, so an empty price span still printed a lone currency
+   symbol. Rahwa Resto's sides and sauces are included with a main and carry no
+   price on their own menu — the scrape was right, this was the rendering. */
+.dishes .p:empty{display:none}
 
 .combos{margin-top:clamp(2.5rem,5vw,4rem)}
 .combos__title{font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
